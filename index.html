@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://mxpx82.github.io/tmp1/ -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    
+    <title>계산기</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="./page.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container" style="padding:30px; background: #DADFDB">
+
+    <article class="calc-group">
+
+        <div class="calc-head" style="background: #77A6F5">벤치방석 주문제작 계산기&nbsp; &nbsp;&nbsp;</div>
+
+        <div class="calc-body">
+
+            <div class="calc-input-form">
+
+                <div class="form-box">
+                    <div class="form-con-box">
+                        <div class="subject">가로</div>
+                        <div class="con">
+                            <input type="text" placeholder="가로둘레를 입력하세요" name="g">
+                        </div>
+                        <div class="unit">cm</div>
+                    </div>
+
+                </div>
+
+                <div class="form-box">
+                    <div class="form-con-box">
+                        <div class="subject">세로</div>
+                        <div class="con">
+                          <input type="text" placeholder="세로길이를 입력하세요." name="s">
+                        </div>
+                        <div class="unit">cm</div>
+                    </div>
+                </div>
+				
+				<div class="form-box">
+                    <div class="form-con-box">
+                        <div class="subject">소재</div>
+                        <div class="con">
+                           <select onchange="doSomething_Version_2(this)" id="soje" style="font-size: 30px; width: 100%; height: 95%;
+          text-align-last: center; font-weight: bold;
+   text-align: center;
+   -ms-text-align-last: center;
+   -moz-text-align-last: center;">
+            <option value="면">면</option>
+            <option value="레자">레자</option>
+            <option value="무지린넨">무지린넨</option>
+            <option value="무늬린">무늬린넨</option>
+          </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="calc-foot">
+<div class="foot-info-box" style="background: #D3AFF8">
+  <input type="text" style="font-size: 40px;text-align-last: center;" placeholder="예상금액은" name="r" id="result1">
+  <span class="unit" style="font-size: 40px">원</span>
+<div class="txt-box">
+  <div class="unit" style="font-size: 40px" ></div>
+  <i class="ic ic-info"></i></div>
+
+            </div>
+
+            <div class="foot-menu-box" style="background:#E3F15F">
+                <a href="https://mxpx82.github.io/tmp1/" class="calc-btn">계산하기</a>
+            </div>
+
+      </div>
+
+    </article>
+
+
+</div>
+
+<script src="./jquery-3.1.1.min.js.다운로드"></script>
+<script>
+
+    $('.calc-btn').on('click', function () {
+
+        var _g = $('input[name=g]');
+        var _s = $('input[name=s]');
+
+        if (_g.val() == "") {
+            alert("길이를 입력해주세요.");
+            return false;
+        }
+
+        if (isNaN(Number(_g.val()))) {
+            alert("숫자만 입력 가능합니다.");
+            return false;
+        }
+
+        if (_s.val() == "") {
+            alert("길이를 입력해주세요.");
+            return false;
+        }
+
+        if (isNaN(Number(_s.val()))) {
+            alert("숫자만 입력 가능합니다.");
+            return false;
+        }
+
+        var vSelect = 0;
+/*
+        if(isNaN(Number(_v.val()))){
+            vSelect = '-';
+        }else{
+            if(_v.val() < 70){
+                vSelect = 70;
+            }else if(_v.val() >= 70 && _v.val() < 80){
+                vSelect = 80;
+            }else if(_v.val() >= 80 && _v.val() < 90){
+                vSelect = 90;
+            }else if(_v.val() >= 90 && _v.val() < 100){
+                vSelect = 100;
+            }else if(_v.val() >= 100 && _v.val() < 110){
+                vSelect = 110;
+            }else if(_v.val() >= 110 && _v.val() < 130){
+                vSelect = 130;
+            }else if(_v.val() >= 130 && _v.val() < 150){
+                vSelect = 150;
+            }else if(_v.val() >= 150 && _v.val() < 170){
+                vSelect = 170;
+            }else if(_v.val() >= 170 && _v.val() < 190){
+                vSelect = 190;
+            }else if(_v.val() >= 190 && _v.val() < 210){
+                vSelect = 210;
+            }else if(_v.val() >= 210 && _v.val() < 220){
+                vSelect = 220;
+            }else if(_v.val() >= 220 && _v.val() < 230){
+                vSelect = 230;
+            }else if(_v.val() >= 230 && _v.val() < 240){
+                vSelect = 240;
+            }else if(_v.val() >= 240 && _v.val() < 250){
+                vSelect = 250;
+            }else if(_v.val() >= 250 && _v.val() < 260){
+                vSelect = 260;
+            }else if(_v.val() >= 260 && _v.val() < 270){
+                vSelect = 270;
+            }else if(_v.val() >= 270 && _v.val() < 280){
+                vSelect = 280;
+            }else if(_v.val() >= 280 && _v.val() < 290){
+                vSelect = 290;
+            }else if(_v.val() >= 290 && _v.val() < 300){
+                vSelect = 300;
+            }else if(_v.val() >= 300 && _v.val() < 310){
+                vSelect = 310;
+            }else if(_v.val() >= 310 && _v.val() < 320){
+                vSelect = 320;
+            }else if(_v.val() >= 320 && _v.val() < 330){
+                vSelect = 330;
+            }else if(_v.val() >= 330 && _v.val() < 340){
+                vSelect = 340;
+            }else{
+                vSelect = 350;
+            }
+        }
+*/
+        $('#result1').text(vSelect);
+
+
+    })
+</script>
+
+
+</body></html>
